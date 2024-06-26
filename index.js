@@ -7,6 +7,7 @@ const buttonClear = document.querySelector('.button-clear')
 
 function fixarLocalStore() {
     const declaraLocalStore = JSON.parse(localStorage.getItem('MinhaLista')) || [];
+    listaInteresses.innerHTML = '';
     declaraLocalStore.forEach(item => {
         const listaADC = document.createElement('li')
         listaADC.innerHTML = item
@@ -34,3 +35,5 @@ buttonClear.addEventListener('click', () => {
     const listaInteresses = document.getElementById('lista-interesses')
     listaInteresses.innerHTML = ''
 })
+
+setInterval(fixarLocalStore, 1000)
